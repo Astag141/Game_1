@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Target Shooting Game</title>
+	<style>
+		body {
+			background-color: black;
+		}
+		#target {
+			background-color: red;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>Target Shooting Game</h1>
+	<p>Click on the target to shoot:</p>
+	<p>Score: <span id="score">0</span></p>
+
+	<div id="target"></div>
+
+	<script>
+		var score = 0;
+
+		document.getElementById("target").addEventListener("click", function() {
+			score++;
+			document.getElementById("score").innerHTML = score;
+			resetTarget();
+		});
+
+		function resetTarget() {
+			var x = Math.floor(Math.random() * window.innerWidth);
+			var y = Math.floor(Math.random() * window.innerHeight);
+			document.getElementById("target").style.top = y + "px";
+			document.getElementById("target").style.left = x + "px";
+		}
+	</script>
+</body>
+</html>
